@@ -26,7 +26,10 @@ export const Container = styled.div`
 export const title = styled.h1`
     margin: 0;
 
-    font-size: 1rem;
+    font-size: 1.6rem;
+
+    cursor: pointer;
+    user-select: none;
 `
 
 export const span = styled.span`
