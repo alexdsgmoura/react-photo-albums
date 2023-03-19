@@ -68,11 +68,17 @@ export const Albums = styled.div`
 
     display: flex;
     flex-direction: column;
+
+    @media (min-width: 280px) and (max-width: 475px) {
+      margin-top: 10px;
+    }
   }
 
   ul li {
     width: 100%;
     height: 50px;
+
+    font-size: 1rem;
 
     display: flex;
     align-items: center;
@@ -95,38 +101,79 @@ export const Albums = styled.div`
     &:hover {
       box-shadow: 0 0px 2px 0 rgb(0 0 0 / 1);
     }
+
+    @media (min-width: 280px) and (max-width: 475px) {
+      width: 90%;
+
+      margin: auto;
+      margin-top: 10px;
+
+      font-size: 0.78rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
   }
 `
 
 export const Navigation = styled.div`
   width: 100%;
-  height: 50px;
+  height: auto;
+
+  box-sizing: border-box;
 
   margin-top: auto;
+  padding: 10px;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  button {
-    width: 200px;
-    height: 40px;
+  @media (min-width: 280px) and (max-width: 475px) {
+    margin-top: 30px;
+  }
 
-    background-color: inherit;
+  .pages {
+    width: 100%;
+    height: auto;
 
-    border-radius: 5px;
-    border: 1px solid rgb(51 65 85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    margin-left: 15px;
-    margin-right: 15px;
+    padding: 10px 0px;
+  }
 
-    cursor: pointer;
+  .prev-next {
+    widows: 100%;
+    height: auto;
 
-    transition: all ease-in-out 0.5s;
+    display: flex;
 
-    &:disabled {
-      color: #000;
-      opacity: 0.7;
+    padding: 10px;
+
+    button {
+      width: 100px;
+      height: 30px;
+
+      background-color: inherit;
+
+      border-radius: 5px;
+      border: 1px solid rgb(51 65 85);
+
+      margin-left: 15px;
+      margin-right: 15px;
+
+      cursor: pointer;
+
+      transition: all ease-in-out 0.5s;
+
+      &:disabled {
+        color: #000;
+        opacity: 0.7;
+      }
     }
   }
 `
