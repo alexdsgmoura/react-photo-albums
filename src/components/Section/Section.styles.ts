@@ -43,6 +43,30 @@ export const LoadingIcon = styled.div<LoadingIconProps>`
   }
 `
 
+export const PageNotFound = styled.div`
+  width: 100%;
+  height: calc(100vh - 70px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1,
+  h2 {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+`
+
 export const Albums = styled.div`
   width: 100%;
   max-width: 1140px;
@@ -85,9 +109,8 @@ export const Albums = styled.div`
 
     box-sizing: border-box;
 
-    padding: 10px;
-
     margin-top: 10px;
+    padding: 0px 10px;
 
     border-radius: 5px;
     border: 1px solid rgb(229 231 235);;
@@ -97,6 +120,17 @@ export const Albums = styled.div`
     transition: all ease-out 0.5s;
 
     cursor: pointer;
+
+    a {
+      width: 100%;
+      height: 100%;
+
+      text-decoration: none;
+      color: #000000;
+
+      display: flex;
+      align-items: center;
+    }
 
     &:hover {
       box-shadow: 0 0px 2px 0 rgb(0 0 0 / 1);

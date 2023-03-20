@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import * as C from './Section.styles'
 
 import { AlbumType } from '../../types/Album'
@@ -51,7 +53,7 @@ export const Section = () => {
         <C.Albums>
           <ul>
             {displayedAlbums.map((value, index) => (
-              <li key={index}>{value.title}</li>
+              <li key={index}><Link to={`/album/${value.userId}`}>{value.title}</Link></li>
             ))}
           </ul>
 
