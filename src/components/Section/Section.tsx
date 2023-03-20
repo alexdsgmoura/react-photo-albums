@@ -25,7 +25,7 @@ export const Section = () => {
   }, [albums, currentPage])
 
   const loadAlbums = async () => {
-    const response = await (await fetch('https://jsonplaceholder.typicode.com/albums')).json()
+    const response = await (await fetch('https://jsonplaceholder.typicode.com/users')).json()
 
     setAlbums(response)
   }

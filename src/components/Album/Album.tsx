@@ -1,9 +1,25 @@
 import * as C from './Album.style'
 
-export const Album = () => {
+export const AlbumComponent = () => {
     return (
-        <C.Album>
-            <div></div>
-        </C.Album>
+        <>
+            <C.Container>
+                <div>...</div>
+                <div>...</div>
+                <div>...</div>
+                <div>...</div>
+                <div>...</div>
+                <div>...</div>
+                <div>...</div>
+                <div>...</div>
+                <div>...</div>
+                <div>...</div>
+                <div>...</div>
+                <div>...</div>
+                <div>...</div>
+                <div>...</div>
+                <div>...</div>
+            </C.Container>
+        </>
     )
 }

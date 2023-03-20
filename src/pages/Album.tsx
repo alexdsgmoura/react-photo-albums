@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 
 import { Header } from "../components/Header/Header";
 import * as C from '../components/Section/Section.styles'
-import { Album as AlbumComponent } from "../components/Album/Album.style";
+import { AlbumComponent } from "../components/Album/Album";
 
 export const Album = () => {
     const params = useParams()
