@@ -3,31 +3,31 @@ import { Link } from 'react-router-dom'
 
 import * as C from './Section.styles'
 
-import { AlbumType } from '../../types/Album'
+import { UserType } from '../../types/User'
 
 export const Section = () => {
-  const [albums, setAlbums] = useState<AlbumType[]>([])
+  const [users, setUsers] = useState<UserType[]>([])
   const [currentPage, setCurrentPage] = useState(0)
-  const [displayedAlbums, setDisplayedAlbums] = useState<AlbumType[]>([])
+  const [displayedUsers, setDisplayedUsers] = useState<UserType[]>([])
 
   useEffect(() => {
     setTimeout(() => {
-      loadAlbums()
+      loadUsers()
     }, 1000)
   }, [])
 
   useEffect(() => {
-    if (albums.length > 0) {
+    if (users.length > 0) {
       const startIndex = currentPage * 10
       const endIndex = startIndex + 10
-      setDisplayedAlbums(albums.slice(startIndex, endIndex + 1))
+      setDisplayedUsers(users.slice(startIndex, endIndex + 1))
     }
-  }, [albums, currentPage])
+  }, [users, currentPage])
 
-  const loadAlbums = async () => {
+  const loadUsers = async () => {
     const response = await (await fetch('https://jsonplaceholder.typicode.com/users')).json()
 
-    setAlbums(response)
+    setUsers(response)
   }
 
   const handlePreviusPage = () => {
@@ -40,8 +40,8 @@ export const Section = () => {
 
   return (
     <C.Section>
-      {albums.length <= 0 &&
-        <C.LoadingIcon visible={true} onClick={loadAlbums}>
+      {users.length <= 0 &&
+        <C.LoadingIcon visible={true} onClick={loadUsers}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-clockwise" viewBox="0 0 16 16">
             <path fillRule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
             <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
@@ -49,17 +49,17 @@ export const Section = () => {
         </C.LoadingIcon>
       }
 
-      {displayedAlbums.length > 0 &&
+      {displayedUsers.length > 0 &&
         <C.Albums>
           <ul>
-            {displayedAlbums.map((value, index) => (
-              <li key={index}><Link to={`/album/${value.userId}`}>{value.title}</Link></li>
+            {displayedUsers.map((value, index) => (
+              <li key={index}><Link to={`/albums/${value.id}`}>{value.name}</Link></li>
             ))}
           </ul>
 
           <C.Navigation>
             <div className='pages'>
-              <span>Páginas {currentPage + 1} de {Math.ceil(albums.length) / 10}</span>
+              <span>Páginas {currentPage + 1} de {Math.ceil(users.length) / 10}</span>
             </div>
 
             <div className='prev-next'>
@@ -76,7 +76,7 @@ export const Section = () => {
 
               <button
                 type='button'
-                disabled={currentPage === Math.ceil(albums.length / 10) - 1}
+                disabled={currentPage === Math.ceil(users.length / 10) - 1}
                 onClick={handleNextPage}
                 title="Proxima página"
               >

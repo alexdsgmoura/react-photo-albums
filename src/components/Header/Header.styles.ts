@@ -21,6 +21,11 @@ export const Container = styled.div`
 
     margin: auto;
     padding: 0px 10px;
+
+    a {
+        text-decoration: none;
+        color: #000000;
+    }
 `
 
 export const title = styled.h1`

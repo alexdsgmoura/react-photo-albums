@@ -1,9 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-type SectionProps = {
-  flex?: string
-}
-
 export const Section = styled.section`
   width: 100%;
   height: calc(100vh - 70px);
@@ -36,8 +32,8 @@ export const LoadingIcon = styled.div<LoadingIconProps>`
   transition: all ease-out 1s;
 
   svg {
-    width: 10rem;
-    height: 10rem;
+    width: 9rem;
+    height: 9rem;
 
     animation: ${spinAnimation} 1s linear infinite;
   }
@@ -113,7 +109,7 @@ export const Albums = styled.div`
     padding: 0px 10px;
 
     border-radius: 5px;
-    border: 1px solid rgb(229 231 235);;
+    border: 1px solid rgb(229 231 235);
 
     box-shadow: 0 0px 2px 0 rgb(0 0 0 / 0.05);
 
@@ -189,24 +185,28 @@ export const Navigation = styled.div`
     padding: 10px;
 
     button {
-      width: 100px;
-      height: 30px;
+      width: 130px;
+      height: 45px;
 
       background-color: inherit;
-
+      
       border-radius: 5px;
-      border: 1px solid rgb(51 65 85);
-
-      margin-left: 15px;
-      margin-right: 15px;
+      border-width: 1px;
 
       cursor: pointer;
 
       transition: all ease-in-out 0.5s;
 
       &:disabled {
-        color: #000;
-        opacity: 0.7;
+          cursor: not-allowed;
+      }
+
+      &:first-child {
+          margin-right: 10px;
+      }
+
+      &:last-child {
+          margin-left: 10px;
       }
     }
   }
