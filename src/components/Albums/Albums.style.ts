@@ -23,6 +23,10 @@ export const List = styled.ul`
     margin-top: 40px;
     padding: 10px;
     box-sizing: border-box;
+
+    @media (min-width: 280px) and (max-width: 425px) {
+      margin-top: 10px;
+    }
 `
 
 export const Li = styled.li`

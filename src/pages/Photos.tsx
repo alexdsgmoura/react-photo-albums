@@ -2,9 +2,9 @@ import { useParams } from "react-router-dom";
 
 import { Header } from "../components/Header/Header";
 import * as C from '../components/Section/Section.styles'
-import { AlbumComponent } from "../components/Album/Album";
+import { Photos as PhotosComponent } from "../components/Photos/Photos";
 
-export const Album = () => {
+export const Photos = () => {
     const params = useParams()
 
     const filterByAlbumId = async (albumId: number) => {
@@ -15,7 +15,7 @@ export const Album = () => {
         <>
             <Header />
             <C.Section>
-                <AlbumComponent />
+                <PhotosComponent />
             </C.Section>
         </>
     )

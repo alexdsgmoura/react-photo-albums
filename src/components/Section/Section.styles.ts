@@ -81,6 +81,8 @@ export const Albums = styled.div`
   }
 
   ul {
+    box-sizing: border-box;
+    
     margin-top: 40px;
 
     width: 100%;
@@ -88,6 +90,8 @@ export const Albums = styled.div`
 
     display: flex;
     flex-direction: column;
+
+    padding: 10px;
 
     @media (min-width: 280px) and (max-width: 475px) {
       margin-top: 10px;
