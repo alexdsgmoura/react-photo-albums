@@ -19,8 +19,8 @@ export const List = styled.ul`
 
     display: flex;
     flex-direction: column;
-
-    margin: 0;
+    
+    margin-top: 40px;
     padding: 10px;
     box-sizing: border-box;
 `
