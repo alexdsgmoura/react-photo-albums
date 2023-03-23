@@ -4,6 +4,7 @@ export const Container = styled.div`
     width: 100%;
     max-width: 1140px;
     height: calc(100vh - 70px);
+    min-height: calc(100vh - 70px);
 
     margin: auto;
     padding: 10px;
@@ -11,6 +12,12 @@ export const Container = styled.div`
 
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 1140px) {
+        height: auto;
+    }
 `
 
 export const PhotosList = styled.div`
@@ -33,13 +40,13 @@ export const PhotosList = styled.div`
     @media (min-width: 500px) and (max-width: 767px) {
         margin-top: 10px;
 
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     @media (min-width: 768px) and (max-width: 1140px) {
         margin-top: 10px;
 
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
 `
 
