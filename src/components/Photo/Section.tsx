@@ -4,35 +4,37 @@ import { useParams } from 'react-router-dom'
 import { PhotoProps } from '../../types/Photo'
 import { LoadingIcon } from '../Section/Section.styles'
 
+import {api} from '../../api/api'
+
 import * as C from './Photo.styles'
 
 export const photoSection = () => {
-  const [photo, setPhoto] = useState<PhotoProps[]>([])
-  const [photoItem, setPhotoItem] = useState<PhotoProps>()
+  const [photo, setPhoto] = useState<PhotoProps>()
+  const [loading, setLoading] = useState(false)
 
   const { id } = useParams()
 
   const loadPhotos = async () => {
     try {
-      const response: PhotoProps[] = await (await fetch('https://jsonplaceholder.typicode.com/photos')).json()
-
+      const response = await api.getPhotoFromId(id as string)
       setPhoto(response)
     } catch (e) {
-      alert('Não foi possivel carregar.')
+      alert('Não foi possivel carregar a página')
     }
   }
 
   useEffect(() => {
+    setLoading(true)
+
     setTimeout(async () => {
       await loadPhotos()
-
-      setPhotoItem(photo.filter((photo) => photo.id === parseInt(id as string))[0])
+      setLoading(false)
     }, 1000)
-  }, [photo, setPhoto])
+  }, [id])
 
   return (
     <>
-      {!photoItem &&
+      {loading &&
         <C.Section display='flex'>
           <LoadingIcon visible={true}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-clockwise" viewBox="0 0 16 16">
@@ -43,14 +45,14 @@ export const photoSection = () => {
         </C.Section>
       }
 
-      {photoItem &&
+      {!loading &&
         <C.Section display='grid'>
           <C.Photo>
-            <C.PhotoItem src={`${photoItem?.url}`} />
+            <C.PhotoItem src={`${photo?.url}`} />
           </C.Photo>
 
           <C.PhotoDesc>
-            <C.Span>{photoItem.title}</C.Span>
+            <C.Span>{`${photo?.title}`}</C.Span>
           </C.PhotoDesc>
         </C.Section>
       }
