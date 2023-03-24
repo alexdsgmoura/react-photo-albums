@@ -30,6 +30,14 @@ export const Section = styled.section<SectionProps>`
   @media (max-width: 997px) {
     grid-template-columns: 1fr;
   }
+
+  @media (min-width: 280px) and (max-width: 425px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding: 10px;
+  }
 `
 
 export const Photo = styled.div`
@@ -40,6 +48,11 @@ export const Photo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 280px) and (max-width: 425px) {
+    width: 100%;
+    height: auto;
+  }
 `
 
 export const PhotoItem = styled.img`
@@ -50,6 +63,11 @@ export const PhotoItem = styled.img`
 
   @media (max-width: 997px) {
     width: 50%;
+  }
+
+  @media (min-width: 280px) and (max-width: 425px) {
+    width: 100%;
+    height: auto;
   }
 `
 
@@ -63,6 +81,11 @@ export const PhotoDesc = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: 280px) and (max-width: 425px) {
+    width: 100%;
+    height: auto;
+  }
 `
 export const Span = styled.span`
   width: 60%;
@@ -81,6 +104,11 @@ export const Span = styled.span`
 
   box-shadow: 0 0px 5px 0 rgb(0 0 0 / 0.30);
   border-radius: 10px;
+
+  @media (min-width: 280px) and (max-width: 425px) {
+    width: 100%;
+    text-align: center;
+  }
 
   @media (max-width: 774px) {
     font-size: 1.1rem;
