@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { PhotoProps } from '../../types/Photo'
 import { LoadingIcon } from '../Section/Section.styles'
 
-import {api} from '../../api/api'
+import { api } from '../../api/api'
 
 import * as C from './Photo.styles'
 

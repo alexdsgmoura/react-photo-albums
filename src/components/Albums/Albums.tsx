@@ -7,6 +7,8 @@ import { LoadingIcon } from '../Section/Section.styles'
 import { AlbumType } from "../../types/Album";
 import { Link } from "react-router-dom";
 
+import { api } from "../../api/api";
+
 export const AlbumsList = () => {
     const [albums, setAlbums] = useState<AlbumType[]>([])
     const [currentPage, setCurrentPage] = useState(0)
@@ -30,7 +32,7 @@ export const AlbumsList = () => {
     }, [albums, setAlbums])
 
     const loadAlbums = async () => {
-        const response = await (await fetch('https://jsonplaceholder.typicode.com/albums')).json()
+        const response = await api.getAllAlbumsFromUserId()
 
         setAlbums(response)
     }

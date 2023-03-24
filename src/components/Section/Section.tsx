@@ -5,6 +5,8 @@ import * as C from './Section.styles'
 
 import { UserType } from '../../types/User'
 
+import { api } from '../../api/api'
+
 export const Section = () => {
   const [users, setUsers] = useState<UserType[]>([])
   const [currentPage, setCurrentPage] = useState(0)
@@ -25,9 +27,9 @@ export const Section = () => {
   }, [users, currentPage])
 
   const loadUsers = async () => {
-    const response = await (await fetch('https://jsonplaceholder.typicode.com/users')).json()
+    const json = await api.getAllUsers()
 
-    setUsers(response)
+    setUsers(json)
   }
 
   const handlePreviusPage = () => {

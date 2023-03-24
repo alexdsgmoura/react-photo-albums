@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 import * as C from './Photos.style'
 import { LoadingIcon, Navigation } from '../Section/Section.styles'
+import { Button, CountPages, NextPrevButtonArea, Span } from '../Albums/Albums.style'
 
 import { PhotoProps } from '../../types/Photo'
-import { Link } from 'react-router-dom'
-import { Button, CountPages, NextPrevButtonArea, Span } from '../Albums/Albums.style'
+
+import { api } from '../../api/api'
 
 export const Photos = () => {
     const [photos, setPhotos] = useState<PhotoProps[]>([])
@@ -23,7 +24,7 @@ export const Photos = () => {
 
     const loadPhotos = async (id: number) => {
         try {
-            const response: PhotoProps[] = await (await fetch('https://jsonplaceholder.typicode.com/photos')).json()
+            const response: PhotoProps[] = await api.getAllPhotosFromAlbumId()
 
             setPhotos(response.filter((photos) => photos.albumId === id))
         } catch (e) {
